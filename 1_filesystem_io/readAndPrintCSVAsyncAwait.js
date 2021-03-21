@@ -5,9 +5,9 @@ async function readAndParse() {
     const fileToRead = path.join(__dirname, 'ford_escort.csv');
     const file = await fs.readFile(fileToRead);
 
-    let splittedUsedCars = file.toString().split('\n').slice(1, -1);
+    let usedCars = file.toString().split('\n').slice(1, -1);
 
-    return splittedUsedCars.map(car => {
+    return usedCars.map(car => {
         car = car.split(',');
         car = {
             year: car[0].trim(),
