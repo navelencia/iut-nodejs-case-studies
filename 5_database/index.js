@@ -1,7 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database(':memory:');
+const db = new sqlite3.Database('db.sqlite3');
 
-db.serialize(function() {
+db.serialize(() => {
   db.run("CREATE TABLE lorem (info TEXT)");
 
   var stmt = db.prepare("INSERT INTO lorem VALUES (?)");
